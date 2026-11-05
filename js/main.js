@@ -13,6 +13,13 @@
     $$('.reveal').forEach(function (el) { el.classList.add('show'); });
   }
 
+  /* Floating nav: darker glass + fixed after scroll */
+  var navEl = $('.nav');
+  if (navEl) {
+    var onScroll = function () { navEl.classList.toggle('scrolled', scrollY > 80); };
+    addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  }
+
   /* Mobile menu */
   var toggle = $('#nav-toggle'), menu = $('#mobile-menu');
   if (toggle && menu) {
